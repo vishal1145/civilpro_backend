@@ -1,0 +1,24 @@
+{
+  "hair_length": [
+    {
+      "id":1,
+      "name": "Long"
+    },
+    {
+      "id":2,
+      "name": "Medium"
+    },
+    {
+      "id":3,
+      "name": "Short"
+    },
+    {
+      "id":4,
+      "name": "Very Short"
+    },
+    {
+      "id":5,
+      "name": "Bald"
+    }
+  ]
+}

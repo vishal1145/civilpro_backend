@@ -1,0 +1,16 @@
+{
+  "hair_type": [
+    {
+      "id":1,
+      "name": "Stright"
+    },
+    {
+      "id":2,
+      "name": "Curly"
+    },
+    {
+      "id":3,
+      "name": "Short"
+    }
+  ]
+}

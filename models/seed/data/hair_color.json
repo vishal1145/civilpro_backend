@@ -1,0 +1,44 @@
+{ 
+  "hair_color": [
+    {
+      "id" : 1,
+      "name": "Auburn"
+    },
+    {
+      "id" : 2,
+      "name": "Blond"
+    },
+    {
+      "id" : 3,
+      "name": "Dark Blond"
+    },
+    {
+      "id" : 4,
+      "name": "Brown"
+    },
+    {
+      "id" : 5,
+      "name": "Light Brown"
+    },
+    {
+      "id" : 6,
+      "name": "Black"
+    },
+    {
+      "id" : 7,
+      "name": "Red"
+    },
+    {
+      "id" : 8,
+      "name": "White"
+    },
+    {
+      "id" : 9,
+      "name": "Bald"
+    },
+    {
+      "id" : 10,
+      "name": "Grey"
+    }
+  ]
+}

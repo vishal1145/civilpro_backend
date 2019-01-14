@@ -1,0 +1,501 @@
+{
+	"profession": [
+		{
+		"profession_id": "1",
+		"parent_id": "0",
+		"category_title": "Models",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "2",
+		"parent_id": "0",
+		"category_title": "Creative Artist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "3",
+		"parent_id": "0",
+		"category_title": "Others",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "4",
+		"parent_id": "1",
+		"category_title": "Female Model",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "5",
+		"parent_id": "1",
+		"category_title": "Male Model",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "6",
+		"parent_id": "4",
+		"category_title": "Fashion",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "7",
+		"parent_id": "4",
+		"category_title": "Commercial",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "8",
+		"parent_id": "4",
+		"category_title": "Curvy",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "9",
+		"parent_id": "4",
+		"category_title": "Lifestyle",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "10",
+		"parent_id": "4",
+		"category_title": "Classic",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "11",
+		"parent_id": "4",
+		"category_title": "Youth",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "12",
+		"parent_id": "4",
+		"category_title": "Children",
+		"gender_type": "2"
+		},
+		{
+		"profession_id": "13",
+		"parent_id": "5",
+		"category_title": "Fashion",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "14",
+		"parent_id": "5",
+		"category_title": "Commercial",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "15",
+		"parent_id": "5",
+		"category_title": "Curvy",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "16",
+		"parent_id": "5",
+		"category_title": "Lifestyle",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "17",
+		"parent_id": "5",
+		"category_title": "Classic",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "18",
+		"parent_id": "5",
+		"category_title": "Youth",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "19",
+		"parent_id": "5",
+		"category_title": "Children",
+		"gender_type": "1"
+		},
+		{
+		"profession_id": "20",
+		"parent_id": "2",
+		"category_title": "Hair & Make up",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "21",
+		"parent_id": "20",
+		"category_title": "Make up",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "22",
+		"parent_id": "20",
+		"category_title": "Hair Stylist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "23",
+		"parent_id": "20",
+		"category_title": "Hair & Make up",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "24",
+		"parent_id": "20",
+		"category_title": "Colourist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "25",
+		"parent_id": "20",
+		"category_title": "Colourist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "26",
+		"parent_id": "2",
+		"category_title": "Photography",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "27",
+		"parent_id": "26",
+		"category_title": "Fashion",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "28",
+		"parent_id": "26",
+		"category_title": "Commercial",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "29",
+		"parent_id": "26",
+		"category_title": "Still",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "30",
+		"parent_id": "26",
+		"category_title": "DOP",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "31",
+		"parent_id": "26",
+		"category_title": "Lifestyle",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "32",
+		"parent_id": "26",
+		"category_title": "Corporate",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "33",
+		"parent_id": "2",
+		"category_title": "Stylist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "34",
+		"parent_id": "33",
+		"category_title": "Fashion",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "35",
+		"parent_id": "33",
+		"category_title": "Commercial",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "36",
+		"parent_id": "33",
+		"category_title": "Props",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "37",
+		"parent_id": "2",
+		"category_title": "Director",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "38",
+		"parent_id": "37",
+		"category_title": "Casting",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "39",
+		"parent_id": "37",
+		"category_title": "Art",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "40",
+		"parent_id": "37",
+		"category_title": "Creative",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "41",
+		"parent_id": "37",
+		"category_title": "Assistant",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "42",
+		"parent_id": "2",
+		"category_title": "Designer",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "43",
+		"parent_id": "42",
+		"category_title": "Set",
+		"gender_type": "3"
+		},{
+		"profession_id": "44",
+		"parent_id": "42",
+		"category_title": "Art",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "45",
+		"parent_id": "42",
+		"category_title": "Fashion",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "46",
+		"parent_id": "42",
+		"category_title": "Graphic",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "47",
+		"parent_id": "2",
+		"category_title": "Choreography",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "48",
+		"parent_id": "2",
+		"category_title": "Influencers",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "49",
+		"parent_id": "48",
+		"category_title": "Fashion",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "50",
+		"parent_id": "48",
+		"category_title": "Lifestyle",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "51",
+		"parent_id": "48",
+		"category_title": "other",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "52",
+		"parent_id": "2",
+		"category_title": "Producer",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "53",
+		"parent_id": "52",
+		"category_title": "Photo",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "54",
+		"parent_id": "52",
+		"category_title": "Film",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "55",
+		"parent_id": "2",
+		"category_title": "Retouchers",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "56",
+		"parent_id": "2",
+		"category_title": "Illustration",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "57",
+		"parent_id": "2",
+		"category_title": "Editors",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "58",
+		"parent_id": "57",
+		"category_title": "Video",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "59",
+		"parent_id": "57",
+		"category_title": "Fashion",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "60",
+		"parent_id": "57",
+		"category_title": "Other",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "61",
+		"parent_id": "2",
+		"category_title": "Assistants",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "62",
+		"parent_id": "61",
+		"category_title": "Hair Stylist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "63",
+		"parent_id": "61",
+		"category_title": "Make up",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "64",
+		"parent_id": "61",
+		"category_title": "Fashion Stylist",
+		"gender_type": "3"
+		},
+
+		{
+		"profession_id": "65",
+		"parent_id": "61",
+		"category_title": "Photography",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "66",
+		"parent_id": "61",
+		"category_title": "Choreography",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "67",
+		"parent_id": "61",
+		"category_title": "Production",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "68",
+		"parent_id": "61",
+		"category_title": "Fashion Designer",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "69",
+		"parent_id": "61",
+		"category_title": "Set & Props Stylist",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "70",
+		"parent_id": "3",
+		"category_title": "Consultants",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "71",
+		"parent_id": "70",
+		"category_title": "PR",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "72",
+		"parent_id": "70",
+		"category_title": "Fashion",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "73",
+		"parent_id": "70",
+		"category_title": "Lifestyle",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "74",
+		"parent_id": "70",
+		"category_title": "Others",
+		"gender_type": "3"
+		},
+
+		{
+		"profession_id": "75",
+		"parent_id": "3",
+		"category_title": "Managers",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "76",
+		"parent_id": "75",
+		"category_title": "Event",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "77",
+		"parent_id": "75",
+		"category_title": "Location",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "78",
+		"parent_id": "75",
+		"category_title": "Production",
+		"gender_type": "3"
+		},
+
+		{
+		"profession_id": "79",
+		"parent_id": "75",
+		"category_title": "Other",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "80",
+		"parent_id": "3",
+		"category_title": "Speakers",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "81",
+		"parent_id": "3",
+		"category_title": "Presenters",
+		"gender_type": "3"
+		},
+		{
+		"profession_id": "82",
+		"parent_id": "3",
+		"category_title": "Others",
+		"gender_type": "3"
+		}
+	]
+}
+
+
+

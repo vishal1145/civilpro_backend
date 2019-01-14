@@ -1,0 +1,141 @@
+{ 
+  "client_categories": [
+    {
+      "id":1,
+      "name": "Art Director"
+    },
+    {
+      "id":2,
+      "name": "Art buyer"
+    },
+    {
+      "id":3,
+      "name": "Ad agency"
+    },
+    {
+      "id":4,
+      "name": "Agency"
+    },
+    {
+      "id":5,
+      "name": "Assistant"
+    },
+    {
+      "id":6,
+      "name": "Casting agent"
+    },
+    {
+      "id":7,
+      "name": "Casting Director "
+    },
+    {
+      "id":8,
+      "name": "Director "
+    },
+     {
+      "id":9,
+      "name": "Designer "
+    },
+    {
+      "id":10,
+      "name": "DOP "
+    },
+    {
+      "id":11,
+      "name": "Producer "
+    },
+    {
+      "id":12,
+      "name": "Producer Assistant  "
+    },
+    {
+      "id":13,
+      "name": "Publicist "
+    },
+    {
+      "id":14,
+      "name": "Fashion company  "
+    },
+    {
+      "id":15,
+      "name": "Fashion designer "
+    },
+    {
+      "id":16,
+      "name": "Film & TV producer "
+    },
+    {
+      "id":17,
+      "name": "Freelance other "
+    },
+    {
+      "id":18,
+      "name": "Event Management "
+    },
+    {
+      "id":19,
+      "name": "Event Manager "
+    },
+    {
+      "id":20,
+      "name": "Stylist "
+    },
+    {
+      "id":21,
+      "name": "Showroom "
+    },
+    {
+      "id":22,
+      "name": "Photographer "
+    },
+    {
+      "id":23,
+      "name": "PR Agent "
+    },
+    {
+      "id":24,
+      "name": "PR Agency "
+    },
+    {
+      "id":25,
+      "name": "Media Producer "
+    },
+    {
+      "id":26,
+      "name": "Talent Management "
+    },
+    {
+      "id":27,
+      "name": "Talent Manager "
+    },
+    {
+      "id":28,
+      "name": "Marketing Manager "
+    },
+    {
+      "id":29,
+      "name": "Publisher "
+    },
+    {
+      "id":30,
+      "name": "Choreographer "
+    },
+    {
+      "id":31,
+      "name": "Videographer "
+    }
+  ]
+}
+
+
+ 
+
+
+
+
+
+ 
+
+  
+
+ 

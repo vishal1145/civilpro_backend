@@ -1,0 +1,32 @@
+{ 
+  "model_type": [
+    {
+      "id" : 1,
+      "name": "African"
+    },
+    {
+      "id" : 2,
+      "name": "Asian"
+    },
+    {
+      "id" : 3,
+      "name": "Caucasian"
+    },
+    {
+      "id" : 4,
+      "name": "Eurasian"
+    },
+    {
+      "id" : 5,
+      "name": "European"
+    },
+    {
+      "id" : 6,
+      "name": "Mediterranean"
+    },
+    {
+      "id" : 7,
+      "name": "Latino"
+    }
+  ]
+}

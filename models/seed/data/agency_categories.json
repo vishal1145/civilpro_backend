@@ -1,0 +1,36 @@
+{ 
+  "agency_categories": [
+    {
+      "id" : 1,
+      "name": "Model Agency (Men, Women, Artists)"
+    },
+    {
+      "id" : 2,
+      "name": "Model Agency (Men - Women)"
+    },
+    {
+      "id" : 3,
+      "name": "Model Agency (Women)"
+    },
+    {
+      "id" : 4,
+      "name": "Model Agency (Men)"
+    },
+    {
+      "id" : 5,
+      "name": "Creative Agency (artists)"
+    },
+    {
+      "id" : 6,
+      "name": "Mother Agency (Men , Women)"
+    },
+    {
+      "id" : 7,
+      "name": "Mother Agency (Men)"
+    },
+    {
+      "id" : 8,
+      "name": "Mother Agency (Women)"
+    }
+  ]
+}

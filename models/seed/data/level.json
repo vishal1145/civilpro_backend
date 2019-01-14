@@ -1,0 +1,20 @@
+{ 
+  "level": [
+    {
+      "id":1,
+      "name": "Agency Represented"
+    },
+    {
+      "id":2,
+      "name": "freelance Established"
+    },
+    {
+      "id":3,
+      "name": "Freelance Intermediate"
+    },
+    {
+      "id":4,
+      "name": "freelance New"
+    }
+  ]
+}

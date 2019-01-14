@@ -1,0 +1,48 @@
+{ 
+  "eye_color": [
+    {
+      "id" : 1,
+      "name": "Blue"
+    },
+    {
+      "id" : 2,
+      "name": "Blue Green"
+    },
+    {
+      "id" : 3,
+      "name": "Blue Grey"
+    },
+    {
+      "id" : 4,
+      "name": "Grey"
+    },
+    {
+      "id" : 5,
+      "name": "Brown"
+    },
+    {
+      "id" : 6,
+      "name": "Black"
+    },
+    {
+      "id" : 7,
+      "name": "Hazel"
+    },
+    {
+      "id" : 8,
+      "name": "Green"
+    },
+    {
+      "id" : 9,
+      "name": "Green Grey"
+    },
+    {
+      "id" : 10,
+      "name": "Green Brown"
+    },
+    {
+      "id" : 11,
+      "name": "Veron"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{ 
+  "products": [
+    {
+      "id" : 1,
+      "name": "Advertisement"
+    },
+    {
+      "id" : 2,
+      "name": "Campaign"
+    },
+    {
+      "id" : 3,
+      "name": "Look Book"
+    },
+    {
+      "id" : 4,
+      "name": "E-commerce"
+    },
+    {
+      "id" : 5,
+      "name": "Showroom"
+    },
+    {
+      "id" : 6,
+      "name": "Fitting"
+    },
+    {
+      "id" : 7,
+      "name": "Presentation"
+    },
+    {
+      "id" : 8,
+      "name": "Runway"
+    },
+    {
+      "id" : 9,
+      "name": "Beauty"
+    },
+    {
+      "id" : 10,
+      "name": "Editorial"
+    },
+    {
+      "id" : 11,
+      "name": "Moving Image"
+    },
+    {
+      "id" : 12,
+      "name": "Product Placement"
+    },
+    {
+      "id" : 13,
+      "name": "Catalogue"
+    },
+    {
+      "id" : 14,
+      "name": "Royalty"
+    },
+    {
+      "id" : 15,
+      "name": "Appearance"
+    },
+    {
+      "id" : 16,
+      "name": "Endorsement"
+    },
+    {
+      "id" : 17,
+      "name": "TV commercial T"
+    },
+    {
+      "id" : 18,
+      "name": "Preparation day"
+    },
+    {
+      "id" : 19,
+      "name": "Travel day"
+    },
+    {
+      "id" : 20,
+      "name": "Film"
+    },
+    {
+      "id" : 21,
+      "name": "Test"
+    },
+    {
+      "id" : 22,
+      "name": "Other"
+    }
+  ]
+}
+
+  
+ 
+ 
+  
+ 
+  
+ 
+   
+ 
+  
+  
+  
+  
+ 
+  
+  
+  
+  
+ 
+  
+  
