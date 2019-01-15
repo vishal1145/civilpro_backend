@@ -1,7 +1,7 @@
 module.exports = {
     env: "dev",
-    port: 8100,
-    chatport:8200,
+    port: 9100,
+    chatport:9200,
     database: "mongodb://artist-link-test:artist-link-test123@ds149724.mlab.com:49724/artist-link-test",
     smtp : {
         smtp_host: "smtp.gmail.com",
