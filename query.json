@@ -1,0 +1,7 @@
+[
+    {
+        "PRCID": "TESTNEW",
+        "QUERY": "Select * from Project where Project_id ='$$$$projectid$$$$'",
+        "ISSINGLEROWRETURN":true
+    }
+]
