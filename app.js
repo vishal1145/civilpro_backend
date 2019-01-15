@@ -116,12 +116,12 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var mongoPromise = mongoose.connect(configManager.getConfigValueByKey('database'), {
   useMongoClient: true
-},function(){
-  new CronJob('* * * * * *', function () {
-    console.log("Executing notificatin service");
-    var notManager = new NotificationManager();
-    notManager.SENDNOT();
-}, null, true, 'America/Los_Angeles');
+//  },function(){
+//   new CronJob('* * * * * *', function () {
+//     console.log("Executing notificatin service");
+//     var notManager = new NotificationManager();
+//     //notManager.SENDNOT();
+// }, null, true, 'America/Los_Angeles');
 
 });
 	mongoPromise.then(() => {
@@ -163,7 +163,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, function(){
+  console.log('listening on port:' + port)
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
