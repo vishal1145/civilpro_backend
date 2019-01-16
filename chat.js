@@ -125,7 +125,7 @@ module.exports = function (app, server) {
 
         return new Promise((resolve, reject) => {
             var request = require('request');
-            request('http://142.93.248.200/civilpro/rest_api/v1/index.php/EmployeeList?emp_id=' + id, function (error, response, body) {
+            request('http://157.230.57.197/civilpro/rest_api/v1/index.php/EmployeeList?emp_id=' + id, function (error, response, body) {
                 console.log('error:', error); // Print the error if one occurred
                 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
                 console.log('body:', body); // Print the HTML for the Google homepage.
@@ -140,7 +140,7 @@ module.exports = function (app, server) {
 
         return new Promise((resolve, reject) => {
             var request = require('request');
-            request('http://142.93.248.200/civilpro/rest_api/v1/index.php/ProjectList?emp_id=' + id, function (error, response, body) {
+            request('http://157.230.57.197/civilpro/rest_api/v1/index.php/ProjectList?emp_id=' + id, function (error, response, body) {
                 console.log('error:', error); // Print the error if one occurred
                 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
                 console.log('body:', body); // Print the HTML for the Google homepage.
@@ -167,7 +167,7 @@ module.exports = function (app, server) {
                 member_image = memberesult[i].image
             }
             else {
-                member_image = "http://142.93.248.200/civilpro/assets/img/logo2.png"
+                member_image = "http://157.230.57.197/civilpro/assets/img/logo2.png"
             }
             var member = {
                 MemberId: memberesult[i].empl_id,
@@ -203,7 +203,7 @@ module.exports = function (app, server) {
                 member_image = memberesult[i].image
             }
             else {
-                member_image = "http://142.93.248.200/civilpro/assets/img/logo2.png"
+                member_image = "http://157.230.57.197/civilpro/assets/img/logo2.png"
             }
             var member = {
                 MemberId: memberesult[i].empl_id,
