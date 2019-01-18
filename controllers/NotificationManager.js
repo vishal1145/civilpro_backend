@@ -328,7 +328,8 @@ module.exports = function () {
                                                 // },
                                                 notification: {
                                                     title: notification.title,
-                                                    body: notification.text
+                                                    body: notification.text,
+                                                    sound : "default"
                                                 }
                                             };
                                             
