@@ -3,5 +3,10 @@
         "PRCID": "TESTNEW",
         "QUERY": "Select * from Project where Project_id ='$$$$projectid$$$$'",
         "ISSINGLEROWRETURN":true
+    },
+    {
+        "PRCID": "MAXEMP",
+        "QUERY": "select max(empl_id) + 1 as id from employee",
+        "ISSINGLEROWRETURN":true
     }
 ]

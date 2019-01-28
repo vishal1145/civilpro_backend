@@ -88,10 +88,10 @@ module.exports = function (app) {
 
     app.post('/api/database', function (req, res, next) {
         var con = mysql.createConnection({
-            host: "45.114.79.179",
+            host: "157.230.57.197",
             port: "3306",
-            user: "attodayi_civil",
-            password: "civilpro@123",
+            user: "root",
+            password: "Ithours_123",
             database: "attodayi_civilpro"
         });
 
@@ -122,8 +122,6 @@ module.exports = function (app) {
             for (var p in postData.Data) {
                 var pid = postData.Data[p]
                 var aa = "$$$$" + p + "$$$$"
-                //aa.replace(",')
-                //aa.replace(",')
                 finalQuery = finalQuery.replace(aa, pid)
             }
 
