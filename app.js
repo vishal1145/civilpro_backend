@@ -119,8 +119,8 @@ var mongoPromise = mongoose.connect(configManager.getConfigValueByKey('database'
   },function(){
   new CronJob('* * * * * *', function () {
     // console.log("Executing notificatin service");
-    // var notManager = new NotificationManager();
-    // notManager.SENDNOT();
+    var notManager = new NotificationManager();
+    notManager.SENDNOT();
 }, null, true, 'America/Los_Angeles');
 
 });
