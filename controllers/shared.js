@@ -42,7 +42,7 @@ module.exports = function (app) {
 
             var finalQuery = "";
 
-            if (type === "1") {
+            if (req.params.type === "1") {
                 finalQuery = `select u.card_date, cl.first_name, cl.last_name, p.Project_name, u.work_type, u.description, u.hours, 'yes' as billed from time_card u
             inner join employee e on e.empl_id = u.employee_id
             inner join Project p on p.Project_id = u.project_name
