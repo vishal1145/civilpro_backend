@@ -48,7 +48,7 @@ module.exports = function (app) {
             inner join Project p on p.Project_id = u.project_name
             inner join Client cl on cl.id = p.Client_id`;
             } else {
-                finalQuery = `select '1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
+                finalQuery = `select p.Project_id, p.Project_name,'1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
                 inner join Project p on p.Project_id = u.project_name
                 inner join Client cl on cl.id = p.Client_id`;
             }
@@ -69,95 +69,6 @@ module.exports = function (app) {
         });
     })
 
-
-    function createpdf(data_record) {
-        return new Promise((resolve, reject) => {
-            var pdf = require('html-pdf');
-            var options = {
-                format: 'Letter'
-            };
-            const path = require('path');
-            var sourcepath = path.resolve(__dirname + '/templates/', 'invoice.html');
-            console.log('Inside Invoice Source path' + sourcepath);
-            //var path12 = path.resolve(__dirname+'\\Invoices\\', 'output'+new Date().getTime()+'.html');
-            var pdfpath = path.resolve(__dirname + '/Invoices/', 'invoice' + new Date().getTime() + '.pdf');
-            console.log('Inside Invoice pdf path' + pdfpath);
-            var description = 'test'
-            var date =  "date value";
-            var invoiceno = Math.floor((Math.random() * 10) + 1);
-            var self = this;
-            const fs = require('fs');
-            console.log('Inside Invoice before reading file and invoice no' + invoiceno);
-            var html = fs.readFileSync(sourcepath, 'utf8');
-            fs.readFile(sourcepath, function read(err, bufcontent) {
-                var content = bufcontent.toString();
-                content = content.replace("$$INV_NO$$", invoiceno + "" + new Date().getFullYear());
-
-                content = content.replace("$$INV_DATE$$", date);
-                content = content.replace("$$Desc$$", description);
-
-                content = content.replace("$$Amount$$", 200);
-                content = content.replace("$$Email$$", "test");
-                content = content.replace("$$Desc$$", description);
-                console.log('Inside Invoice before creating pdf' + invoiceno);
-                pdf.create(content, options).toBuffer(async function (err, buffer) {
-                    if (err) return console.log(err);
-                    // else {
-                    //     applogger.info('Inside Invoice after creating pdf before uploading to aws' + res);
-                    //     await UPloadTOAWS(pdfpath, walletData._id.toString())
-                    // }
-                    console.log(buffer);
-                    resolve(buffer);
-                });
-            });
-        });
-    }
-
-    app.get('/api/pdf-download/:type', function (req, res, next) {
-        var con = mysql.createConnection({
-            host: "157.230.57.197",
-            port: "3306",
-            user: "root",
-            password: "Ithours_123",
-            database: "attodayi_civilpro"
-        });
-
-        con.connect(function (err) {
-
-            var $start_date = req.body.start_date;
-            var $end_date = req.body.end_date;
-
-            var finalQuery = "";
-
-            if (req.params.type === "1") {
-                finalQuery = `select u.card_date, cl.first_name, cl.last_name, p.Project_name, u.work_type, u.description, u.hours, 'yes' as billed, u.employee_id from time_card u
-            inner join employee e on e.empl_id = u.employee_id
-            inner join Project p on p.Project_id = u.project_name
-            inner join Client cl on cl.id = p.Client_id`;
-            } else {
-                finalQuery = `select '1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
-                inner join Project p on p.Project_id = u.project_name
-                inner join Client cl on cl.id = p.Client_id`;
-            }
-
-            //finalQuery = finalQuery + " STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
-            //finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+""','%m/%d/%Y')";
-            console.log(finalQuery);
-
-            con.query(finalQuery, [], function (error, results, fields) {
-
-                console.log(results);
-
-                createpdf(results).then((url)=>{
-                    res.setHeader('Cache-Control', 'private, max-age=3600');
-                    res.status(200).send({
-                        url: url
-                    });    
-                });
-                
-            });
-        });
-    })
 
     app.post('/api/manager', async function (req, res, next) {
         let isVerified = 200
