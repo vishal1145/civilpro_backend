@@ -26,7 +26,7 @@ module.exports = function (app) {
         });
     }
 
-    app.get('/api/xlsx-download/:type', function (req, res, next) {
+    app.post('/api/xlsx-download/:type', function (req, res, next) {
 
         console.log(req.body);
         
