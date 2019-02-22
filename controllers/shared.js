@@ -69,6 +69,49 @@ module.exports = function (app) {
         });
     })
 
+
+    function createpdf(data_record) {
+        return new Promise((resolve, reject) => {
+            var pdf = require('html-pdf');
+            var options = {
+                format: 'Letter'
+            };
+            const path = require('path');
+            var sourcepath = path.resolve(__dirname + '/templates/', 'invoice.html');
+            console.log('Inside Invoice Source path' + sourcepath);
+            //var path12 = path.resolve(__dirname+'\\Invoices\\', 'output'+new Date().getTime()+'.html');
+            var pdfpath = path.resolve(__dirname + '/Invoices/', 'invoice' + new Date().getTime() + '.pdf');
+            console.log('Inside Invoice pdf path' + pdfpath);
+            var description = 'test'
+            var date =  "date value";
+            var invoiceno = Math.floor((Math.random() * 10) + 1);
+            var self = this;
+            const fs = require('fs');
+            console.log('Inside Invoice before reading file and invoice no' + invoiceno);
+            var html = fs.readFileSync(sourcepath, 'utf8');
+            fs.readFile(sourcepath, function read(err, bufcontent) {
+                var content = bufcontent.toString();
+                content = content.replace("$$INV_NO$$", invoiceno + "" + new Date().getFullYear());
+
+                content = content.replace("$$INV_DATE$$", date);
+                content = content.replace("$$Desc$$", description);
+
+                content = content.replace("$$Amount$$", 200);
+                content = content.replace("$$Email$$", "test");
+                content = content.replace("$$Desc$$", description);
+                console.log('Inside Invoice before creating pdf' + invoiceno);
+                pdf.create(content, options).toFile(pdfpath, async function (err, res) {
+                    if (err) return console.log(err);
+                    // else {
+                    //     applogger.info('Inside Invoice after creating pdf before uploading to aws' + res);
+                    //     await UPloadTOAWS(pdfpath, walletData._id.toString())
+                    // }
+                    resolve(pdfpath);
+                });
+            });
+        });
+    }
+
     app.get('/api/pdf-download/:type', function (req, res, next) {
         var con = mysql.createConnection({
             host: "157.230.57.197",
@@ -104,9 +147,13 @@ module.exports = function (app) {
 
                 console.log(results);
 
-                res.setHeader('Cache-Control', 'private, max-age=3600');
-                res.status(200).send({ url : 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' });
-
+                createpdf(results).then((url)=>{
+                    res.setHeader('Cache-Control', 'private, max-age=3600');
+                    res.status(200).send({
+                        url: url
+                    });    
+                });
+                
             });
         });
     })
