@@ -26,7 +26,7 @@ module.exports = function (app) {
         });
     }
 
-    app.get('/api/xlsx-download', function (req, res, next) {
+    app.get('/api/xlsx-download/:type', function (req, res, next) {
         var con = mysql.createConnection({
             host: "157.230.57.197",
             port: "3306",
@@ -40,14 +40,21 @@ module.exports = function (app) {
             var $start_date = req.body.start_date;
             var $end_date = req.body.end_date;
 
-            var finalQuery = `select u.card_date, cl.first_name, cl.last_name, p.Project_name, u.work_type, u.description, u.hours, 'yes' as billed from time_card u
+            var finalQuery = "";
+
+            if (type === "1") {
+                finalQuery = `select u.card_date, cl.first_name, cl.last_name, p.Project_name, u.work_type, u.description, u.hours, 'yes' as billed from time_card u
             inner join employee e on e.empl_id = u.employee_id
             inner join Project p on p.Project_id = u.project_name
             inner join Client cl on cl.id = p.Client_id`;
+            } else {
+                finalQuery = `select '1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
+                inner join Project p on p.Project_id = u.project_name
+                inner join Client cl on cl.id = p.Client_id`;
+            }
 
             //finalQuery = finalQuery + " STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
             //finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+""','%m/%d/%Y')";
-
             console.log(finalQuery);
 
             con.query(finalQuery, [], function (error, results, fields) {
@@ -102,8 +109,7 @@ module.exports = function (app) {
                 } catch (ex) {
                     if (ex instanceof CustomError) {
                         toReturn = core.wrapResponse(null, ex.code);
-                    } 
-                    else {
+                    } else {
                         toReturn = core.wrapResponse(null, "PRC002");
                     }
                     incomingObj.Exception = ex;
@@ -167,15 +173,14 @@ module.exports = function (app) {
                 con.end();
 
                 res.setHeader('Cache-Control', 'private, max-age=3600');
-                if(queryObj.ISSINGLEROWRETURN){
-                res.status(200).send(results[0]);
-               }
-               else{
-                res.status(200).send(results); 
-               }
+                if (queryObj.ISSINGLEROWRETURN) {
+                    res.status(200).send(results[0]);
+                } else {
+                    res.status(200).send(results);
+                }
 
             });
         });
-    })  
+    })
 
 }
