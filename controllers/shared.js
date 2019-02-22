@@ -100,13 +100,14 @@ module.exports = function (app) {
                 content = content.replace("$$Email$$", "test");
                 content = content.replace("$$Desc$$", description);
                 console.log('Inside Invoice before creating pdf' + invoiceno);
-                pdf.create(content, options).toFile(pdfpath, async function (err, res) {
+                pdf.create(content, options).toBuffer(async function (err, buffer) {
                     if (err) return console.log(err);
                     // else {
                     //     applogger.info('Inside Invoice after creating pdf before uploading to aws' + res);
                     //     await UPloadTOAWS(pdfpath, walletData._id.toString())
                     // }
-                    resolve(pdfpath);
+                    console.log(buffer);
+                    resolve(buffer);
                 });
             });
         });
