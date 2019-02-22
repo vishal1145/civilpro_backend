@@ -26,7 +26,10 @@ module.exports = function (app) {
         });
     }
 
-    app.get('/api/xlsx-download/:type', function (req, res, next) {
+    app.post('/api/xlsx-download/:type', function (req, res, next) {
+
+        console.log(req.body);
+        
         var con = mysql.createConnection({
             host: "157.230.57.197",
             port: "3306",
