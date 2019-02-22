@@ -26,7 +26,7 @@ module.exports = function (app) {
         });
     }
 
-    app.post('/api/xlsx-download/:type', function (req, res, next) {
+    app.get('/api/xlsx-download/:type', function (req, res, next) {
 
         console.log(req.body);
         
@@ -43,6 +43,9 @@ module.exports = function (app) {
             var $start_date = req.body.start_date;
             var $end_date = req.body.end_date;
 
+            //$end_date = "3/1/2019";
+            //$start_date = "1/1/2019";
+
             var finalQuery = "";
 
             if (req.params.type === "1") {
@@ -56,8 +59,9 @@ module.exports = function (app) {
                 inner join Client cl on cl.id = p.Client_id`;
             }
 
-            //finalQuery = finalQuery + " STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
-            //finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+""','%m/%d/%Y')";
+            finalQuery = finalQuery + " where STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
+            finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y')";
+            
             console.log(finalQuery);
 
             con.query(finalQuery, [], function (error, results, fields) {
@@ -71,6 +75,7 @@ module.exports = function (app) {
             });
         });
     })
+
 
 
     app.post('/api/manager', async function (req, res, next) {
