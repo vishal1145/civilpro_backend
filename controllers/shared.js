@@ -69,6 +69,48 @@ module.exports = function (app) {
         });
     })
 
+    app.get('/api/pdf-download/:type', function (req, res, next) {
+        var con = mysql.createConnection({
+            host: "157.230.57.197",
+            port: "3306",
+            user: "root",
+            password: "Ithours_123",
+            database: "attodayi_civilpro"
+        });
+
+        con.connect(function (err) {
+
+            var $start_date = req.body.start_date;
+            var $end_date = req.body.end_date;
+
+            var finalQuery = "";
+
+            if (req.params.type === "1") {
+                finalQuery = `select u.card_date, cl.first_name, cl.last_name, p.Project_name, u.work_type, u.description, u.hours, 'yes' as billed, u.employee_id from time_card u
+            inner join employee e on e.empl_id = u.employee_id
+            inner join Project p on p.Project_id = u.project_name
+            inner join Client cl on cl.id = p.Client_id`;
+            } else {
+                finalQuery = `select '1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
+                inner join Project p on p.Project_id = u.project_name
+                inner join Client cl on cl.id = p.Client_id`;
+            }
+
+            //finalQuery = finalQuery + " STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
+            //finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+""','%m/%d/%Y')";
+            console.log(finalQuery);
+
+            con.query(finalQuery, [], function (error, results, fields) {
+
+                console.log(results);
+
+                res.setHeader('Cache-Control', 'private, max-age=3600');
+                res.status(200).send({ url : 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' });
+
+            });
+        });
+    })
+
     app.post('/api/manager', async function (req, res, next) {
         let isVerified = 200
         if (isVerified == 401) {
