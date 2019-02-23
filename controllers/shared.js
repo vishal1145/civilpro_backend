@@ -49,8 +49,8 @@ module.exports = function (app) {
             var finalQuery = "";
 
             if (req.params.type === "1") {
-                finalQuery = `select u.card_date, cl.first_name, cl.last_name, p.Project_name, u.work_type, 
-                cl.first_name as c_first_name , cl.last_name as c_last_name,
+                finalQuery = `select u.card_date, e.first_name as emp_first_name, e.last_name as emp_last_name, p.Project_name, u.work_type, 
+                cl.first_name as cli_first_name , cl.last_name as cli_last_name,
                 u.description, u.hours, 'yes' as billed, u.employee_id 
                 from time_card u
             inner join employee e on e.empl_id = u.employee_id
@@ -62,9 +62,10 @@ module.exports = function (app) {
                 inner join Client cl on cl.id = p.Client_id`;
             }
 
+            if($start_date && $end_date){
             finalQuery = finalQuery + " where STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
             finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y')";
-            
+            }
             console.log(finalQuery);
 
             con.query(finalQuery, [], function (error, results, fields) {
