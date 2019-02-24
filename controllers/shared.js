@@ -64,10 +64,16 @@ module.exports = function (app) {
                 inner join Client cl on cl.id = p.Client_id`;
             }
 
+            //if($start_date && $end_date){
+            //finalQuery = finalQuery + " where STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
+            //finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y')";
+            //}
+
             if($start_date && $end_date){
-            finalQuery = finalQuery + " where STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y')";
-            finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y')";
+                finalQuery = finalQuery +  " where ( STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y') or STR_TO_DATE(u.card_date,'%Y-%m-%d') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y'))"
+                finalQuery = finalQuery + "  and (STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y') or STR_TO_DATE(u.card_date,'%Y-%m-%d') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y'))"
             }
+            
             console.log(finalQuery);
 
             con.query(finalQuery, [], function (error, results, fields) {
