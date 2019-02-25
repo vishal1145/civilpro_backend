@@ -8,5 +8,10 @@
         "PRCID": "MAXEMP",
         "QUERY": "select max(empl_id) + 1 as id from employee",
         "ISSINGLEROWRETURN":true
+    },
+	{
+        "PRCID": "GETPROJECTTASK",
+        "QUERY": "select * from project_tasks where project_id = $$$$projectid$$$$",
+        "ISSINGLEROWRETURN":true
     }
 ]
