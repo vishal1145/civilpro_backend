@@ -13,5 +13,10 @@
         "PRCID": "GETPROJECTTASK",
         "QUERY": "select * from project_tasks where project_id = $$$$projectid$$$$",
         "ISSINGLEROWRETURN":false
+    },
+    {
+        "PRCID": "GETTASKCOUNT",
+        "QUERY": "select sum(1) as counts from project_tasks",
+        "ISSINGLEROWRETURN":true
     }
-]	
+]

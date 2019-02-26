@@ -51,13 +51,14 @@ module.exports = function (app) {
             var type = req.params.type;
             type = "1";
             if (type === "1") {
-                finalQuery = `select u.card_date, e.first_name as emp_first_name, e.last_name as emp_last_name, p.Project_name, u.work_type, 
+                finalQuery = `select u.card_date, e.first_name as emp_first_name, e.last_name as emp_last_name, p.Project_name, pt.task_name as work_type, 
                 cl.first_name as cli_first_name , cl.last_name as cli_last_name,
                 u.description, u.hours, 'yes' as billed, u.employee_id ,p.Project_id as project_id
                 from time_card u
             inner join employee e on e.empl_id = u.employee_id
             inner join Project p on p.Project_id = u.project_name
-            inner join Client cl on cl.id = p.Client_id`;
+            inner join Client cl on cl.id = p.Client_id
+            inner join project_tasks pt on pt.id = u.taskid`;
             } else {
                 finalQuery = `select p.Project_id, p.Project_name,'1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
                 inner join Project p on p.Project_id = u.project_name
@@ -158,6 +159,14 @@ module.exports = function (app) {
             database: "attodayi_civilpro"
         });
 
+		// con = mysql.createConnection({
+        //     host: "localhost",
+        //     port: "3306",
+        //     user: "root",
+        //     password: "",
+        //     database: "civilpro"
+        // });
+		
         con.connect(function (err) {
             if (err) {
                 console.log('Error connecting to Db');
