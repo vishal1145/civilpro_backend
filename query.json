@@ -12,6 +12,6 @@
 	{
         "PRCID": "GETPROJECTTASK",
         "QUERY": "select * from project_tasks where project_id = $$$$projectid$$$$",
-        "ISSINGLEROWRETURN":true
+        "ISSINGLEROWRETURN":false
     }
-]
+]	
