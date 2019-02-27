@@ -2,21 +2,41 @@
     {
         "PRCID": "TESTNEW",
         "QUERY": "Select * from Project where Project_id ='$$$$projectid$$$$'",
-        "ISSINGLEROWRETURN":true
+        "ISSINGLEROWRETURN": true
     },
     {
         "PRCID": "MAXEMP",
         "QUERY": "select max(empl_id) + 1 as id from employee",
-        "ISSINGLEROWRETURN":true
+        "ISSINGLEROWRETURN": true
     },
-	{
+    {
         "PRCID": "GETPROJECTTASK",
         "QUERY": "select * from project_tasks where project_id = $$$$projectid$$$$",
-        "ISSINGLEROWRETURN":false
+        "ISSINGLEROWRETURN": false
     },
     {
         "PRCID": "GETTASKCOUNT",
         "QUERY": "select sum(1) as counts from project_tasks",
-        "ISSINGLEROWRETURN":true
+        "ISSINGLEROWRETURN": true
+    },
+    {
+        "PRCID": "GETALLTASK",
+        "QUERY": "select pt.*, p.Project_name  from project_tasks pt inner join Project p on p.Project_id = pt.project_id",
+        "ISSINGLEROWRETURN": false
+    },
+    {
+        "PRCID": "DELETETASKBYID",
+        "QUERY": "delete from project_tasks where id = $$$$taskid$$$$",
+        "NORETURNDATA": true
+    },
+    {
+        "PRCID": "ADDTASK",
+        "QUERY": "INSERT INTO project_tasks(task_name, task_discription, project_id) VALUES('$$$$taskname$$$$', '$$$$taskdiscription$$$$', $$$$project_id$$$$);",
+        "NORETURNDATA": true
+    },
+    {
+        "PRCID": "EDITTASK",
+        "QUERY": "UPDATE project_tasks SET task_name='$$$$taskname$$$$', task_discription='$$$$taskdiscription$$$$' WHERE id= $$$$taskid$$$$",
+        "NORETURNDATA": false
     }
 ]

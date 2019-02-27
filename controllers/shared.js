@@ -29,7 +29,7 @@ module.exports = function (app) {
     app.post('/api/xlsx-download/:type', function (req, res, next) {
 
         console.log(req.body);
-        
+
         var con = mysql.createConnection({
             host: "157.230.57.197",
             port: "3306",
@@ -70,11 +70,11 @@ module.exports = function (app) {
             //finalQuery = finalQuery + " and STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y')";
             //}
 
-            if($start_date && $end_date){
-                finalQuery = finalQuery +  " where ( STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y') or STR_TO_DATE(u.card_date,'%Y-%m-%d') >= STR_TO_DATE('"+$start_date+"','%m/%d/%Y'))"
-                finalQuery = finalQuery + "  and (STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y') or STR_TO_DATE(u.card_date,'%Y-%m-%d') <= STR_TO_DATE('"+$end_date+ "','%m/%d/%Y'))"
+            if ($start_date && $end_date) {
+                finalQuery = finalQuery + " where ( STR_TO_DATE(u.card_date,'%m/%d/%Y') >= STR_TO_DATE('" + $start_date + "','%m/%d/%Y') or STR_TO_DATE(u.card_date,'%Y-%m-%d') >= STR_TO_DATE('" + $start_date + "','%m/%d/%Y'))"
+                finalQuery = finalQuery + "  and (STR_TO_DATE(u.card_date,'%m/%d/%Y') <= STR_TO_DATE('" + $end_date + "','%m/%d/%Y') or STR_TO_DATE(u.card_date,'%Y-%m-%d') <= STR_TO_DATE('" + $end_date + "','%m/%d/%Y'))"
             }
-            
+
             console.log(finalQuery);
 
             con.query(finalQuery, [], function (error, results, fields) {
@@ -159,14 +159,14 @@ module.exports = function (app) {
             database: "attodayi_civilpro"
         });
 
-		// con = mysql.createConnection({
+        // con = mysql.createConnection({
         //     host: "localhost",
         //     port: "3306",
         //     user: "root",
         //     password: "",
         //     database: "civilpro"
         // });
-		
+
         con.connect(function (err) {
             if (err) {
                 console.log('Error connecting to Db');
@@ -203,10 +203,14 @@ module.exports = function (app) {
                 con.end();
 
                 res.setHeader('Cache-Control', 'private, max-age=3600');
-                if (queryObj.ISSINGLEROWRETURN) {
-                    res.status(200).send(results[0]);
+                if (queryObj.NORETURNDATA) {
+                    res.status(200).send({ MSG : 'Operation success'});
                 } else {
-                    res.status(200).send(results);
+                    if (queryObj.ISSINGLEROWRETURN) {
+                        res.status(200).send(results[0]);
+                    } else {
+                        res.status(200).send(results);
+                    }
                 }
 
             });

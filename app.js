@@ -43,8 +43,14 @@ winston.handleExceptions(
  );
 
 process.on('unhandledRejection', (ex)=>{
-throw ex;
+//throw ex;
 });
+
+process.on('uncaughtException', function (err) {
+  // console.error((new Date).toUTCString() + ' uncaughtException:', err.message)
+  console.error(err.stack)
+  // process.exit(1)
+})
 
 winston.add(winston.transports.File, {filename:'logfile.log'});
 winston.add(winston.transports.MongoDB, {db:'mongodb://localhost/artist',level:'info'});
