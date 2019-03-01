@@ -38,5 +38,15 @@
         "PRCID": "EDITTASK",
         "QUERY": "UPDATE project_tasks SET task_name='$$$$taskname$$$$', task_discription='$$$$taskdiscription$$$$' WHERE id= $$$$taskid$$$$",
         "NORETURNDATA": false
+    },
+    {
+        "PRCID": "ADDEMPLOYEETOTASK",
+        "QUERY": "insert into task_employee select $$$$empl_id$$$$  , $$$$taskid$$$$;",
+        "NORETURNDATA": true
+    },
+    {
+        "PRCID": "DELETEEMPLOYEEFROMTASK",
+        "QUERY": "delete from task_employee where task_id = $$$$taskid$$$$ and empl_id = $$$$empl_id$$$$;",
+        "NORETURNDATA": true
     }
 ]
