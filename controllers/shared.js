@@ -199,7 +199,7 @@ module.exports = function (app) {
 
             con.query(finalQuery, [], function (error, results, fields) {
 
-                if (error) throw error;
+                //if (error) throw error;
                 con.end();
 
                 res.setHeader('Cache-Control', 'private, max-age=3600');

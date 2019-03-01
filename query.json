@@ -46,7 +46,7 @@
     },
     {
         "PRCID": "DELETEEMPLOYEEFROMTASK",
-        "QUERY": "delete from task_employee where task_id = $$$$taskid$$$$ and empl_id = $$$$empl_id$$$$;",
+        "QUERY": "delete from task_employee where task_id = $$$$taskid$$$$;",
         "NORETURNDATA": true
     }
 ]
