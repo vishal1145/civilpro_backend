@@ -16,7 +16,7 @@
     },
     {
         "PRCID": "GETTASKCOUNT",
-        "QUERY": "select sum(1) as counts from project_tasks",
+        "QUERY": "select sum(1) as counts from project_tasks pt inner join Project p on p.Project_id = pt.project_id",
         "ISSINGLEROWRETURN": true
     },
     {
