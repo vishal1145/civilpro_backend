@@ -36,7 +36,7 @@
     },
     {
         "PRCID": "EDITTASK",
-        "QUERY": "UPDATE project_tasks SET task_name='$$$$taskname$$$$', task_discription='$$$$taskdiscription$$$$' WHERE id= $$$$taskid$$$$",
+        "QUERY": "UPDATE project_tasks SET task_name='$$$$taskname$$$$', task_discription='$$$$taskdiscription$$$$', status = '$$$$taskstatus$$$$' WHERE id= $$$$taskid$$$$",
         "NORETURNDATA": false
     },
     {
