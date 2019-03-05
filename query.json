@@ -48,5 +48,10 @@
         "PRCID": "DELETEEMPLOYEEFROMTASK",
         "QUERY": "delete from task_employee where task_id = $$$$taskid$$$$;",
         "NORETURNDATA": true
+    },
+    {
+        "PRCID": "UPDATESTATUSBYID",
+        "QUERY": "UPDATE project_tasks SET status = '$$$$taskstatus$$$$' WHERE id= $$$$taskid$$$$",
+        "NORETURNDATA": true
     }
 ]
