@@ -53,5 +53,10 @@
         "PRCID": "UPDATESTATUSBYID",
         "QUERY": "UPDATE project_tasks SET status = '$$$$taskstatus$$$$' WHERE id= $$$$taskid$$$$",
         "NORETURNDATA": true
+    },
+    {
+        "PRCID": "DOWNLOADDATA",
+        "QUERY": "select dl.*, e.first_name, m.machine_name,i.materials_name from dispatch_log dl inner join employee e on dl.emp_id = e.empl_id inner join machine m on dl.equipment_id = m.machine_id inner join material i on dl.material_id = i.id",
+        "ISSINGLEROWRETURN": false        
     }
 ]
