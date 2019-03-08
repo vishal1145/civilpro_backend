@@ -56,7 +56,7 @@
     },
     {
         "PRCID": "DOWNLOADDATA",
-        "QUERY": "select dl.*, e.first_name, m.machine_name,i.materials_name from dispatch_log dl inner join employee e on dl.emp_id = e.empl_id inner join machine m on dl.equipment_id = m.machine_id inner join material i on dl.material_id = i.id",
+        "QUERY": "select e.first_name as 'Employee', dl.start_time as 'Start Time',dl.job_site as 'Job Site', m.machine_name as 'Equipment',dl.scope_work as 'Scope of Work',dl.special_req as 'Special Requirements',dl.trucks as 'Trucks',i.materials_name as 'Material',dl.quantity as 'Quantity', dl.status as 'Status' from dispatch_log dl inner join employee e on dl.emp_id = e.empl_id inner join machine m on dl.equipment_id = m.machine_id inner join material i on dl.material_id = i.id",
         "ISSINGLEROWRETURN": false        
     }
 ]
