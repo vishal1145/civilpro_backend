@@ -58,5 +58,11 @@
         "PRCID": "DOWNLOADDATA",
         "QUERY": "select e.first_name as 'Employee', dl.start_time as 'Start Time',dl.job_site as 'Job Site', m.machine_name as 'Equipment',dl.scope_work as 'Scope of Work',dl.special_req as 'Special Requirements',dl.trucks as 'Trucks',i.materials_name as 'Material',dl.quantity as 'Quantity', dl.status as 'Status' from dispatch_log dl inner join employee e on dl.emp_id = e.empl_id inner join machine m on dl.equipment_id = m.machine_id inner join material i on dl.material_id = i.id",
         "ISSINGLEROWRETURN": false        
+    },
+    {
+        "PRCID": "ADDBLANKDISPATCHLOG",
+        "QUERY": "INSERT INTO dispatch_log (emp_id, start_time,job_site,equipment_id,scope_work,special_req,trucks,material_id,quantity,status,dispatch_date) select e.empl_id, '', '', null,'','','',null,0,'New','$$$$dispatch_date$$$$' from employee e where e.empl_id not in ( select  emp_id from dispatch_log dl where dl.dispatch_date = '$$$$dispatch_date$$$$')",
+        "NORETURNDATA": true
     }
+    
 ]
