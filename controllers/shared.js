@@ -197,6 +197,8 @@ module.exports = function (app) {
                 finalQuery = finalQuery.replace(aa, pid)
             }
 
+            console.log(finalQuery);
+            
             con.query(finalQuery, [], function (error, results, fields) {
 
                 //if (error) throw error;
