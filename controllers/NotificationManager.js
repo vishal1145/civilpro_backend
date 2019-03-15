@@ -278,7 +278,7 @@ module.exports = function () {
          condition = { "status": "New" };
          // condition = { "_id" : mongoose.Types.ObjectId("5c33307b4d7d4c54f11dbefb") };
       var pushnotifications = await PushNotification.find(condition); //.populate('byId')
-      console.log(pushnotifications)
+      //console.log(pushnotifications)
             // .populate({
             //     path: 'linkId',
             //     // Get friends of friends - populate the 'friends' array for every friend
@@ -709,6 +709,12 @@ module.exports = function () {
             }
             resCallback(res, null, { MSG: "Clear success" });
         });
+    }
+
+    this.SAVENEWNOTIFICATION = async function(req, res){
+        let topushnoty = new PushNotification(req)
+        let tosave = await topushnoty.save();
+        return tosave
     }
 
 
