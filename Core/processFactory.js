@@ -9,6 +9,7 @@ module.exports = function () {
     var BookingManager = require('../controllers/BookingManager.js');
     var CategoryManager = require('../controllers/CategoryManager.js');
     var DeviceManager = require('../controllers/DeviceManager.js');
+    var NotificationManager = require('../controllers/NotificationManager.js');
     
     this.getProcessManagerById = function (processId) {
         var manager = null;
@@ -37,6 +38,9 @@ module.exports = function () {
                 break;
             case "UserDevice":
                 manager = new DeviceManager();
+                break;
+            case "Notification":
+                manager = new NotificationManager();
                 break;
           
         }
