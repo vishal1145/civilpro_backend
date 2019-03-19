@@ -19,7 +19,7 @@ module.exports = function () {
                 groupObject.GroupInfo.Phone=uone.MemberPhone;
                 return groupObject;
             } else {
-                var utwo = groupObject.Members[1];
+                var utwo = groupObject.Members[1]  || {};
                 groupObject.GroupInfo.GroupName = utwo.MemberName;
                 groupObject.GroupInfo.ProfileURLOfGroup = utwo.MemberImage;
                 groupObject.GroupInfo.Role=utwo.Role;
