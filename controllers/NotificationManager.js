@@ -330,6 +330,9 @@ module.exports = function () {
                                                     title: notification.title,
                                                     body: notification.text,
                                                     sound : "default"
+                                                },
+                                                data:{
+type: notification.type
                                                 }
                                             };
                                             
