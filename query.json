@@ -69,7 +69,8 @@
     {
         "PRCID": "GETTIMECARDCOUNT",
         "QUERY": "select count(1) cnts from time_card where readstatus = 0",
-        "NORETURNDATA": true
+        "NORETURNDATA": false,
+        "ISSINGLEROWRETURN": true 
     }
     
 ]
