@@ -310,7 +310,7 @@ module.exports = function () {
                          notification.count = 1;
                         await notification.save(notification);
 
-                         UserDevice.find({ user_id: notification.targetId }, function (err, users) {
+                         UserDevice.find({ user_id: notification.targetId, notification_on: true }, function (err, users) {
                              var registrationTokens = [];
 
                              if (users && users.length > 0) {
@@ -330,6 +330,9 @@ module.exports = function () {
                                                     title: notification.title,
                                                     body: notification.text,
                                                     sound : "default"
+                                                },
+                                                data:{
+type: notification.type
                                                 }
                                             };
                                             

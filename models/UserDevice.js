@@ -16,6 +16,11 @@ var UserDeviceSchema = new mongoose.Schema({
         devicetype : String
     }],
     user_id: String,
+    notification_on :{
+        type: Boolean,
+        default: true
+    }
 });
 
 mongoose.model('UserDevice', UserDeviceSchema);
+module.exports = mongoose.model('UserDevice', UserDeviceSchema);
