@@ -63,6 +63,13 @@
         "PRCID": "ADDBLANKDISPATCHLOG",
         "QUERY": "INSERT INTO dispatch_log (emp_id, start_time,job_site,equipment_id,scope_work,special_req,trucks,material_id,quantity,status,dispatch_date) select e.empl_id, '', '', null,'','','',null,0,'New','$$$$dispatch_date$$$$' from employee e where e.empl_id not in ( select  emp_id from dispatch_log dl where dl.dispatch_date = '$$$$dispatch_date1$$$$')",
         "NORETURNDATA": true
+    },
+
+
+    {
+        "PRCID": "GETTIMECARDCOUNT",
+        "QUERY": "select count(1) cnts from time_card where readstatus = 0",
+        "NORETURNDATA": true
     }
     
 ]
