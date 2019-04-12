@@ -26,35 +26,5 @@ router.get('/updateUserDevice', async function(req, res){
 }
 })
 
-router.get('/add-project-notificaion', async function(req, res){
-  try{
-  let id = Number(req.query.userid);
-  let pid = Number(req.query.projectid);
-  var notifObj = {
-    targetId: id,
-    title: "Admin added you the project",
-    text: "Admin added you the project",
-    type: 'PROJECTUPDATE',
-    isRead: false,
-    refData: {
-        GroupId: pid
-    }
-}
-
-// var notManager = new NotificationManager();
-// notManager.CREATEPUSHNOTIFICATION(notifObj);
-
-var PushNotificationObj = new PushNotification(notobj);
-        PushNotificationObj.save(PushNotificationObj, function (err, logresult) {
-          res.json(e)
-        });
-
-}
-catch(e){
-  res.json(e)
-}
-
-})
-
 
 module.exports = router;

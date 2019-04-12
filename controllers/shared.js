@@ -198,7 +198,7 @@ module.exports = function (app) {
             }
 
             console.log(finalQuery);
-            
+
             con.query(finalQuery, [], function (error, results, fields) {
 
                 //if (error) throw error;
@@ -206,7 +206,7 @@ module.exports = function (app) {
 
                 res.setHeader('Cache-Control', 'private, max-age=3600');
                 if (queryObj.NORETURNDATA) {
-                    res.status(200).send({ MSG : 'Operation success'});
+                    res.status(200).send({ MSG: 'Operation success' });
                 } else {
                     if (queryObj.ISSINGLEROWRETURN) {
                         res.status(200).send(results[0]);
@@ -218,5 +218,43 @@ module.exports = function (app) {
             });
         });
     })
+
+
+
+    app.get('/add-project-notificaion', async function (req, res) {
+        try {
+            let id = Number(req.query.userid);
+            let pid = Number(req.query.projectid);
+            var notifObj = {
+                targetId: id,
+                title: "Admin added you the project",
+                text: "Admin added you the project",
+                type: 'PROJECTUPDATE',
+                isRead: false,
+                refData: {
+                    GroupId: pid
+                }
+            }
+
+            var core = new Core();
+            var notManager = new ProcessFactory().getProcessManagerById("Notification"); // core.getMangerByprocess_id(cnt);
+            let methodResponse = notManager.CREATEPUSHNOTIFICATION(notifObj); //await process[param.method_id](param.request_object, {});
+            var toReturn = core.wrapResponse(methodResponse);
+            res.json(toReturn);
+            // var notManager = new NotificationManager();
+            // notManager.CREATEPUSHNOTIFICATION(notifObj);
+
+            // var PushNotificationObj = new PushNotification(notifObj);
+            // PushNotification.save(PushNotificationObj, function (err, logresult) {
+            //           res.json(e)
+            //         });
+
+        }
+        catch (e) {
+            res.json(e)
+        }
+
+    })
+
 
 }
