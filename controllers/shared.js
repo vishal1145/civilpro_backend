@@ -150,6 +150,7 @@ module.exports = function (app) {
         }
     });
 
+    
     app.post('/api/database', function (req, res, next) {
         var con = mysql.createConnection({
             host: "localhost",
@@ -158,7 +159,7 @@ module.exports = function (app) {
             password: "",
             database: "attodayi_civilpro"
         });
-        
+
         // con = mysql.createConnection({
         //     host: "localhost",
         //     port: "3306",
