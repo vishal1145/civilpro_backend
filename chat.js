@@ -13,7 +13,7 @@ module.exports = function (app, server) {
 
 
     var User = require('./models/User');
-    var host = '157.230.57.197';
+    var host = '104.248.30.138';
 
     app.get('/dummyData', async function (req, res, ) {
 

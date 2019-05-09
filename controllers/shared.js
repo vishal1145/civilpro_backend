@@ -31,10 +31,10 @@ module.exports = function (app) {
         console.log(req.body);
 
         var con = mysql.createConnection({
-            host: "157.230.57.197",
+            host: "localhost",
             port: "3306",
             user: "root",
-            password: "Ithours_123",
+            password: "",
             database: "attodayi_civilpro"
         });
 
@@ -152,13 +152,13 @@ module.exports = function (app) {
 
     app.post('/api/database', function (req, res, next) {
         var con = mysql.createConnection({
-            host: "157.230.57.197",
+            host: "localhost",
             port: "3306",
             user: "root",
-            password: "Ithours_123",
+            password: "",
             database: "attodayi_civilpro"
         });
-
+        
         // con = mysql.createConnection({
         //     host: "localhost",
         //     port: "3306",
