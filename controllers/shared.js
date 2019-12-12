@@ -3,7 +3,7 @@ var Core = require('../Core/core.js');
 var ProcessFactory = require('../Core/processFactory.js');
 var CustomError = require('../Core/custom-error');
 var mysql = require("mysql");
-module.exports = function (app) {
+module.exports = function(app) {
 
     var jwt = require('jsonwebtoken');
     var bcrypt = require('bcryptjs');
@@ -16,7 +16,7 @@ module.exports = function (app) {
             if (config.env == "prod") {
                 var token = req.headers['x-access-token'];
                 if (!token) resolve(401);
-                jwt.verify(token, config.secret, function (err, decoded) {
+                jwt.verify(token, config.secret, function(err, decoded) {
                     if (err) resolve(500);
                     else resolve(200);
                 });
@@ -26,7 +26,7 @@ module.exports = function (app) {
         });
     }
 
-    app.post('/api/xlsx-download/:type', function (req, res, next) {
+    app.post('/api/xlsx-download/:type', function(req, res, next) {
 
         console.log(req.body);
 
@@ -38,7 +38,7 @@ module.exports = function (app) {
             database: "attodayi_civilpro"
         });
 
-        con.connect(function (err) {
+        con.connect(function(err) {
 
             var $start_date = req.body.start_date;
             var $end_date = req.body.end_date;
@@ -59,6 +59,7 @@ module.exports = function (app) {
             inner join Project p on p.Project_id = u.project_name
             inner join Client cl on cl.id = p.Client_id
             inner join project_tasks pt on pt.id = u.taskid`;
+
             } else {
                 finalQuery = `select p.Project_id, p.Project_name,'1/28/2019' as work_date , 'abc' as team , cl.first_name, cl.last_name , u.work_type, u.description,  u.hours, 'yes' as billed from time_card u
                 inner join Project p on p.Project_id = u.project_name
@@ -77,7 +78,7 @@ module.exports = function (app) {
 
             console.log(finalQuery);
 
-            con.query(finalQuery, [], function (error, results, fields) {
+            con.query(finalQuery, [], function(error, results, fields) {
 
                 if (error) throw error;
                 con.end();
@@ -91,7 +92,7 @@ module.exports = function (app) {
 
 
 
-    app.post('/api/manager', async function (req, res, next) {
+    app.post('/api/manager', async function(req, res, next) {
         let isVerified = 200
         if (isVerified == 401) {
             res.status(401).send({
@@ -150,8 +151,8 @@ module.exports = function (app) {
         }
     });
 
-    
-    app.post('/api/database', function (req, res, next) {
+
+    app.post('/api/database', function(req, res, next) {
         var con = mysql.createConnection({
             host: "localhost",
             port: "3306",
@@ -168,7 +169,7 @@ module.exports = function (app) {
         //     database: "civilpro"
         // });
 
-        con.connect(function (err) {
+        con.connect(function(err) {
             if (err) {
                 console.log('Error connecting to Db');
                 console.log(err);
@@ -200,7 +201,7 @@ module.exports = function (app) {
 
             console.log(finalQuery);
 
-            con.query(finalQuery, [], function (error, results, fields) {
+            con.query(finalQuery, [], function(error, results, fields) {
 
                 //if (error) throw error;
                 con.end();
@@ -222,7 +223,7 @@ module.exports = function (app) {
 
 
 
-    app.get('/add-project-notificaion', async function (req, res) {
+    app.get('/add-project-notificaion', async function(req, res) {
         try {
             let id = Number(req.query.userid);
             let pid = Number(req.query.projectid);
@@ -250,8 +251,7 @@ module.exports = function (app) {
             //           res.json(e)
             //         });
 
-        }
-        catch (e) {
+        } catch (e) {
             res.json(e)
         }
 

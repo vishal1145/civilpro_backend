@@ -1,3 +1,5 @@
+
+
 const winston = require('winston');
 
 
@@ -38,34 +40,34 @@ require('./models/Category')
 require('./models/UserDevice');
 require('./models/PushNotification')
 winston.handleExceptions(
-    new winston.transports.Console({ colorize: true }, { prettyPrint: true }),
-    new winston.transports.File({ filename: 'uncaughtExceptions.log' })
-);
+ new winston.transports.Console({colorize:true},{prettyPrint:true}),
+ new winston.transports.File({filename:'uncaughtExceptions.log'})
+ );
 
-process.on('unhandledRejection', (ex) => {
-    //throw ex;
+process.on('unhandledRejection', (ex)=>{
+//throw ex;
 });
 
-process.on('uncaughtException', function(err) {
-    // console.error((new Date).toUTCString() + ' uncaughtException:', err.message)
-    console.error(err.stack)
-        // process.exit(1)
+process.on('uncaughtException', function (err) {
+  // console.error((new Date).toUTCString() + ' uncaughtException:', err.message)
+  console.error(err.stack)
+  // process.exit(1)
 })
 
-winston.add(winston.transports.File, { filename: 'logfile.log' });
-winston.add(winston.transports.MongoDB, { db: 'mongodb://localhost/artist', level: 'info' });
+winston.add(winston.transports.File, {filename:'logfile.log'});
+winston.add(winston.transports.MongoDB, {db:'mongodb://localhost/artist',level:'info'});
 
 router.use(bodyParser.json({ limit: '500mb' }));
 router.use(bodyParser.urlencoded({ limit: '500mb', extended: true, parameterLimit: 50000 }));
 
-router.use(function(req, res, next) {
-
+router.use(function (req, res, next) {
+  
     // check header or url parameters or post parameters for token
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
     // decode token
     if (token) {
         // verifies secret and checks exp
-        jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+        jwt.verify(token, app.get('superSecret'), function (err, decoded) {
             if (err) {
                 return res.json({ success: false, message: 'Failed to authenticate token.' });
             } else {
@@ -87,7 +89,7 @@ router.use(function(req, res, next) {
 });
 
 if (mongoose.connection.readyState === 0) {
-    mongoose.connect(require('./models/connection-string'));
+  mongoose.connect(require('./models/connection-string'));
 }
 mongoose.set('debug', true);
 // view engine setup
@@ -105,14 +107,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/auth', auth.verifyJWTToken, usersAuthRouter);
-app.use(function(err, req, res, next) {
-    winston.error(err.message, err);
-    res.status(500).send(`Some internal error:${err}`);
+app.use('/users',usersRouter);
+app.use('/auth',auth.verifyJWTToken,usersAuthRouter);
+app.use(function(err, req, res, next){
+	winston.error(err.message, err);
+	res.status(500).send(`Some internal error:${err}`);
 });
 
-require('./chat')(app, server);
+require('./chat')(app,server);
 
 require('./routes/routes')(app)
 
@@ -121,21 +123,21 @@ configManager.getConfigValueByKey('database');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var mongoPromise = mongoose.connect(configManager.getConfigValueByKey('database'), {
-    useMongoClient: true
-}, function() {
-    new CronJob('* * * * * *', function() {
-        // console.log("Executing notificatin service");
-        var notManager = new NotificationManager();
-        notManager.SENDNOT();
-    }, null, true, 'America/Los_Angeles');
+  useMongoClient: true
+  },function(){
+  new CronJob('* * * * * *', function () {
+    // console.log("Executing notificatin service");
+    var notManager = new NotificationManager();
+    notManager.SENDNOT();
+}, null, true, 'America/Los_Angeles');
 
 });
-mongoPromise.then(() => {
-    console.log('Connected to Database');
-});
+	mongoPromise.then(() => {
+	  console.log('Connected to Database');
+	});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 
@@ -143,20 +145,20 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = 800;
+var port = 9100;
 app.set('port', port);
 
 /**
@@ -169,8 +171,8 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, function() {
-    console.log('listening on port:' + port)
+server.listen(port, function(){
+  console.log('listening on port:' + port)
 });
 server.on('error', onError);
 server.on('listening', onListening);
@@ -180,19 +182,19 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-    var port = parseInt(val, 10);
+  var port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
-    if (port >= 0) {
-        // port number
-        return port;
-    }
+  if (port >= 0) {
+    // port number
+    return port;
+  }
 
-    return false;
+  return false;
 }
 
 /**
@@ -200,27 +202,27 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-    if (error.syscall !== 'listen') {
-        throw error;
-    }
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
 
-    var bind = typeof port === 'string' ?
-        'Pipe ' + port :
-        'Port ' + port;
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
 }
 
 /**
@@ -228,11 +230,11 @@ function onError(error) {
  */
 
 function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ?
-        'pipe ' + addr :
-        'port ' + addr.port;
-    debug('Listening on ' + bind);
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
 }
 
 
