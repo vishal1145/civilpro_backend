@@ -40,7 +40,7 @@
     "save": "^2.3.2",
     "simple-node-logger": "^0.93.40",
     "socket.io": "^2.1.1",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "winston": "^2.4.4",
     "winston-mongodb": "^3.0.0"
   }
